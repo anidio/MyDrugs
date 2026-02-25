@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 @theme {
+  --animate-float: float 3s ease-in-out infinite;
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
   --color-mydrugs-dark: #0f172a;
   --color-mydrugs-neon: #22c55e;
   --color-mydrugs-gray: #1e293b;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 :root {
