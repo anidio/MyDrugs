@@ -1,49 +1,67 @@
+import { Typewriter } from 'react-simple-typewriter';
 import ListaCategorias from "../../components/categorias/listacategorias/ListaCategorias";
+import { Link } from 'react-router-dom';
 
 function Home() {
     return (
         <>
-            <div className="bg-mydrugs-dark flex justify-center py-16">
-                <div className='container grid grid-cols-1 md:grid-cols-2 text-white items-center px-8'>
+            <div className="bg-transparent flex justify-center pt-8 pb-4 md:pt-12 md:pb-8">
+                <div className='container flex flex-col md:grid md:grid-cols-2 text-white items-center px-6 md:px-8 mx-auto gap-8 md:gap-12'>
                     
-                    <div className="flex flex-col gap-6 items-center md:items-start justify-center text-center md:text-left">
-                        <h2 className='text-5xl md:text-6xl font-bold leading-tight'>
-                            Bem vindo ao <span className="text-mydrugs-neon">MyDrugs</span> 💊
+                    <div className="flex flex-col gap-6 md:gap-8 items-center md:items-start justify-center text-center md:text-left order-2 md:order-1">
+                        <h2 className='text-4xl sm:text-5xl md:text-7xl font-bold leading-tight min-h-[150px] md:min-h-[180px]'>
+                            Bem vindos ao <br />
+                            <span className="text-mydrugs-neon">
+                                <Typewriter
+                                    words={['MyDrugs', 'Laboratório', 'Submundo', 'Império']}
+                                    loop={0} 
+                                    cursor
+                                    cursorStyle='|'
+                                    typeSpeed={80}
+                                    deleteSpeed={40}
+                                    delaySpeed={2500}
+                                />
+                            </span> 💊
                         </h2>
-                        <p className='text-xl text-slate-300'>
+                        <p className='text-lg md:text-2xl text-slate-300 max-w-md'>
                             As melhores soluções farmacêuticas, entregues com agilidade e a modernidade que você procura.
                         </p>
 
-                        <div className="flex justify-center md:justify-start gap-4 w-full">
-                            <button className='rounded-full border-mydrugs-neon border-2 py-3 px-10 text-mydrugs-neon hover:bg-mydrugs-neon hover:text-white transition-all duration-300 font-bold uppercase tracking-widest shadow-lg shadow-mydrugs-neon/20'>
+                        <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4 w-full">
+                            <Link to='/categorias' className='rounded-full border-mydrugs-neon border-2 py-3 px-8 text-mydrugs-neon hover:bg-mydrugs-neon hover:text-white transition-all duration-300 font-bold uppercase tracking-widest text-sm shadow-lg shadow-mydrugs-neon/20 text-center'>
                                 Ver Categorias
-                            </button>
+                            </Link>
+                            
+                            <Link to='/produtos' className='rounded-full bg-mydrugs-neon py-3 px-8 text-mydrugs-dark hover:bg-white transition-all duration-300 font-black uppercase tracking-widest text-sm shadow-lg shadow-mydrugs-neon/30 text-center'>
+                                Explorar Produtos
+                            </Link>
                         </div>
                     </div>
 
-                    <div className="flex justify-center mt-12 md:mt-0">
+                    <div className="flex justify-center items-center order-1 md:order-2 w-full overflow-hidden max-h-[450px] md:max-h-[550px]">
                         <img 
                             src="../src/assets/mydrugs.png" 
-                            alt="Imagem Home MyDrugs" 
-                            className='w-full max-w-md rounded-3xl shadow-2xl animate-float' 
+                            alt="Avatar MyDrugs" 
+                            className='w-full max-w-sm md:max-w-md object-contain animate-float filter drop-shadow-[0_0_15px_rgba(0,255,159,0.3)]' 
+                            style={{ marginTop: '-40px', marginBottom: '-60px' }} // "Puxa" os elementos de cima e baixo para mais perto do avatar
                         />
                     </div>
                 </div>
             </div>
-
-            <div className="bg-mydrugs-gray py-16 px-8">
-                <div className="container mx-auto">
-                    <h2 className="text-center text-4xl font-bold text-white mb-12 uppercase tracking-tighter">
+            
+            <div className="bg-transparent py-8 md:py-12 px-4 md:px-8 -mt-4 md:-mt-2">
+                <div className="container mx-auto flex flex-col items-center">
+                    <h2 className="text-center text-3xl md:text-5xl font-bold text-white -mb-2 md:mb-6 uppercase tracking-tighter">
                         Nossas <span className="text-mydrugs-neon">Categorias</span>
                     </h2>
-
-                    <div className="flex justify-center">
+                    
+                    <div className="w-full flex justify-center">
                         <ListaCategorias />
                     </div>
                 </div>
             </div>
         </>
-    )
+    );
 }
 
 export default Home;
