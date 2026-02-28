@@ -8,7 +8,11 @@ function FormularioCategoria() {
     const navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
 
-    const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
+    const [categoria, setCategoria] = useState<Categoria>({
+        id: 0,
+        nome: '',
+        descricao: ''
+    });
 
     async function buscarPorId(id: string) {
         await buscar(`/categorias/${id}`, setCategoria);
