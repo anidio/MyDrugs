@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { buscar } from "../../../services/Service";
-import type Categoria from "../../../models/Categoria";
 import CardCategoria from "../cardcategoria/CardCategoria";
 import { DNA } from "react-loader-spinner";
+import type Categoria from "../../../models/Categoria";
 
 function ListaCategorias() {
-
     const [categorias, setCategorias] = useState<Categoria[]>([]);
 
     async function buscarCategorias() {
@@ -21,30 +20,25 @@ function ListaCategorias() {
     }, [categorias.length]);
 
     return (
-        <>
+        <div className="w-full flex flex-col items-center">
             {categorias.length === 0 && (
                 <div className="flex justify-center items-center h-40">
-                    <DNA
-                        visible={true}
-                        height="100"
-                        width="100"
-                        ariaLabel="dna-loading"
-                        wrapperStyle={{}}
-                        wrapperClass="dna-wrapper"
-                    />
+                    <DNA visible={true} height="100" width="100" />
                 </div>
             )}
 
-            <div className="flex justify-center w-full my-12">
-                <div className="container flex flex-col px-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+            <div className="flex justify-center w-full pt-28">
+                <div className="container px-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 md:gap-12 justify-items-center w-full">
                         {categorias.map((categoria) => (
-                            <CardCategoria key={categoria.id} categoria={categoria} />
+                            <div key={categoria.id} className="w-full max-w-[450px]"> 
+                                <CardCategoria categoria={categoria} />
+                            </div>
                         ))}
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 
