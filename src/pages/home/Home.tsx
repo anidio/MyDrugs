@@ -1,5 +1,5 @@
 import ListaCategorias from "../../components/categorias/listacategorias/ListaCategorias";
-import imageMyDrugs from "../../assets/mydrugs.png"
+import myDrugsLogo from '../../assets/mydrugs.png';
 
 function Home() {
     return (
@@ -24,7 +24,7 @@ function Home() {
 
                     <div className="flex justify-center mt-12 md:mt-0">
                         <img 
-                            src={imageMyDrugs} 
+                            src={myDrugsLogo} 
                             alt="Imagem Home MyDrugs" 
                             className='w-full max-w-md rounded-3xl shadow-2xl animate-float' 
                         />
