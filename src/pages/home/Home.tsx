@@ -1,6 +1,8 @@
 import { Typewriter } from 'react-simple-typewriter';
 import ListaCategorias from "../../components/categorias/listacategorias/ListaCategorias";
+import myDrugsLogo from '../../assets/mydrugs.png';
 import { Link } from 'react-router-dom';
+
 
 function Home() {
     return (
@@ -40,10 +42,10 @@ function Home() {
 
                     <div className="flex justify-center items-center order-1 md:order-2 w-full overflow-hidden max-h-[450px] md:max-h-[550px]">
                         <img 
-                            src="../src/assets/mydrugs.png" 
-                            alt="Avatar MyDrugs" 
-                            className='w-full max-w-sm md:max-w-md object-contain animate-float filter drop-shadow-[0_0_15px_rgba(0,255,159,0.3)]' 
-                            style={{ marginTop: '-40px', marginBottom: '-60px' }} // "Puxa" os elementos de cima e baixo para mais perto do avatar
+                            src={myDrugsLogo} 
+                            alt="Imagem Home MyDrugs" 
+                            className='w-full max-w-md rounded-3xl shadow-2xl animate-float' 
+
                         />
                     </div>
                 </div>
