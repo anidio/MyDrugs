@@ -10,8 +10,8 @@ function FormularioCategoria() {
 
     const [categoria, setCategoria] = useState<Categoria>({
         id: 0,
-        nome: '',
-        descricao: ''
+        descricao: '',
+        produto: []
     });
 
     async function buscarPorId(id: string) {
@@ -71,7 +71,6 @@ function FormularioCategoria() {
                         placeholder="Ex: Medicamentos"
                         name='nome'
                         className="border-2 border-slate-700 rounded-lg p-3 bg-mydrugs-dark text-white focus:border-mydrugs-neon outline-none transition-all"
-                        value={categoria.nome}
                         onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
                     />
                 </div>
